@@ -1,0 +1,27 @@
+ <header> 
+  <div class="container_12">
+   <div class="grid_12"> 
+    <h1><a href="index.html"><img src="images/logo.png" alt="Boo House">
+    <div id="countdown">
+    <div class="clear"><
+    <div class="menu_block">
+
+     <nav  class="" >
+      <ul class="sf-menu">
+         <li class="current"><a href="index.html">Home
+         <li><a href="index-1.html">History
+         <li><a href="index-2.html">Recipes
+         <li><a href="index-3.html">Party Planning
+         <li><a href="index-4.html">Decorations
+         <li><a href="index-5.html">Contacts
+       
+    
+     <form id="search" action="search.php" method="GET">
+        <input type="text" name="s">                           
+            <a onClick="document.getElementById('search').submit()"></a>
+        <div class="clear"></div>
+     
+ <div class="clear">
+
+           
+<div class="clear">
