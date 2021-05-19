@@ -1,2 +1,16 @@
-<h1>
-    Pagina 1!!!
+  <ul class="sf-menu">
+    <li><a href=@{HomeR}>Home
+    <li><a href=@{Page1R}>Page1
+    <li><a href=@{Page2R}>Page 2
+    <li><a href=@{Page3R}>Page 3
+          
+  <div class="clear">
+  <div class="content">
+  <div class="grid_12">
+  <div class="box bx2">
+    
+    <h3>Página 1!!!
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies ylo erat rutrum. Cras facilisis, nulla vel viverra ctor, leo magna sodales felis, quis malesuada nibh odio ut veliteril. Proin pharetra luctus diam, a scelerisque eros convallis accumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat nibh. Ut nisi nibh, sagittis ut sempery elementum, pellentesque a odio. Phasellus vitae libero vel justo pretium dignissim. Integer semper in est nec congue. In laoreet lacus eros, vel pulvinar urnam ultricies ut.
+    <p>Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus libero. Praesent faucibus malesuada faucibus. Donec laoreet metus id laoreet malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed nulla facilisis consequat. Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros. Fusce adipiscing quam id risus sagittis, non consequat lacus interdum. Proin ut tincidunt nulla, eu sodales arcu. Quisque viverra nulla nunc, eu ultrices libero ultricies eget. Phasellus accumsan justo vitae feugiat placerat. Praesent vel ultrices velit. Suspendisse risus justo, lacinia vitae eleifend sed, cursus sit amet massa. Vestibulum nec metus feugiat, congue erat quis, venenatis nisi.
+    <p>Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus libero. Praesent faucibus malesuada faucibus. Donec laoreet metus id laoreet malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed nulla facilisis consequat. Curabitur vel lorem sit amet nulla ullamcorper fermentum. In vitae varius augue, eu consectetur ligula. Etiam dui eros, laoreet sit amet est vel, commodo venenatis eros. Fusce adipiscing quam id risus sagittis, non consequat lacus interdum. Proin ut tincidunt nulla, eu sodales arcu. Quisque viverra nulla nunc, eu ultrices libero ultricies eget. Phasellus accumsan justo vitae feugiat placerat. Praesent vel ultrices velit. Suspendisse risus justo.

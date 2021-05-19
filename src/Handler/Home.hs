@@ -23,15 +23,18 @@ getPage1R :: Handler Html
 getPage1R = do
     defaultLayout $ do
         $(whamletFile "templates/page1.hamlet")
+        toWidgetHead $(luciusFile "templates/home.lucius")
         
 getPage2R :: Handler Html
 getPage2R = do
     defaultLayout $ do
         $(whamletFile "templates/page2.hamlet")
+        toWidgetHead $(luciusFile "templates/home.lucius")
         
 getPage3R :: Handler Html
 getPage3R = do
     defaultLayout $ do
         $(whamletFile "templates/page3.hamlet")
+        toWidgetHead $(luciusFile "templates/home.lucius")
         
         

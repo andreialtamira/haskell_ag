@@ -1,2 +1,13 @@
-<h1>
+  <ul class="sf-menu">
+    <li><a href=@{HomeR}>Home
+    <li><a href=@{Page1R}>Page1
+    <li><a href=@{Page2R}>Page 2
+    <li><a href=@{Page3R}>Page 3
+          
+  <div class="clear">
+  <div class="content">
+  <div class="grid_12">
+  <div class="box bx2">
+    
+    <h3>Página 3!!!
     <img src=@{StaticR img_mioca_jpeg}>
