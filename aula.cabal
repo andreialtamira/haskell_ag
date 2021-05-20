@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 898a74cdf81c54f500401f6b2ac229a071039961ed8eba9cf74324e0647243f1
+-- hash: 7158eb427a1a11dc381ef97f80db77172634a4fd94bd5f14a8fee9ece33cd0d1
 
 name:           aula
 version:        0.0.0
@@ -24,6 +24,7 @@ library
   exposed-modules:
       Application
       Foundation
+      Handler.Cliente
       Handler.Common
       Handler.Home
       Import

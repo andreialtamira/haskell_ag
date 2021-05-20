@@ -7,3 +7,8 @@
 /p1 Page1R GET
 /p2 Page2R GET
 /p3 Page3R GET
+
+/cliente ClienteR GET POST
+/cliente/perfil/#ClienteId PerfilR GET
+/clientes ListaCliR GET
+/cliente/#ClienteId ApagarCliR POST
