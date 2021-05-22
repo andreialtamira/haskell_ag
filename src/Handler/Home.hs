@@ -4,6 +4,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE QuasiQuotes #-}
+
 module Handler.Home where
 
 import Import
@@ -18,19 +19,7 @@ getHomeR = do
         toWidgetHead $(juliusFile "templates/home.julius")
         toWidgetHead $(luciusFile "templates/home.lucius") 
         $(whamletFile "templates/home.hamlet")
-        
-getPage1R :: Handler Html
-getPage1R = do
-    defaultLayout $ do
-        $(whamletFile "templates/page1.hamlet")
-        toWidgetHead $(luciusFile "templates/home.lucius")
-        
-getPage2R :: Handler Html
-getPage2R = do
-    defaultLayout $ do
-        $(whamletFile "templates/page2.hamlet")
-        toWidgetHead $(luciusFile "templates/home.lucius")
-        
+                
 getPage3R :: Handler Html
 getPage3R = do
     defaultLayout $ do

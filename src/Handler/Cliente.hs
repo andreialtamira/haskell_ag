@@ -13,6 +13,7 @@ formCliente = renderDivs $ Cliente
     <$> areq textField "Nome: " Nothing
     <*> areq textField "CPF: " Nothing
     <*> areq intField "Idade: " Nothing
+    <*> areq textField "Endereço: " Nothing
 
 getClienteR :: Handler Html
 getClienteR = do
