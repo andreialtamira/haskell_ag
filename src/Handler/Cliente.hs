@@ -52,6 +52,8 @@ getPerfilR cid = do
             CPF: #{clienteCpf cliente}
         <h2>
             Idade: #{clienteIdade cliente}
+        <h2>
+            Endereco: #{clienteEndereco cliente}
     |]
 
 getListaCliR :: Handler Html

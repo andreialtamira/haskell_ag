@@ -8,6 +8,8 @@
             <th>
                 IDADE
             <th>
+                ENDERECO
+            <th>
 
     <tbody>
         $forall Entity cid cliente <- clientes
@@ -18,6 +20,8 @@
                     #{clienteCpf cliente}
                 <td>
                     #{clienteIdade cliente}
+                <td>
+                    #{clienteEndereco cliente}
                 <td>
                     <form method=post action=@{ApagarCliR cid}>
                         <input type="submit" value="X">

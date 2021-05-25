@@ -1,1 +1,27 @@
-<p> teste
+<table>
+    <thead>
+        <tr>
+            <th>
+                NOME
+            <th>
+                DESCRICAO
+            <th>
+                TIPO
+            <th>
+                VALOR
+            <th>
+
+    <tbody>
+        $forall Entity pid produto <- produtos
+            <tr>
+                <td>
+                    #{produtoNome produto}
+                <td>
+                    #{produtoDescricao produto}
+                <td>
+                    #{produtoTipo produto}
+                <td>
+                    #{produtoValor produto}
+                <td>
+                    <form method=post action=@{ApagarProR pid}>
+                        <input type="submit" value="X">
