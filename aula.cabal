@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f25c5e6d455fae7330bd572959d9512309f923b97497e716a869c667aa684590
+-- hash: 6fbcc9846da2386f7649d0072a5228030f08b338ed6f39be4e7a583cfcd3b5ba
 
 name:           aula
 version:        0.0.0
@@ -28,6 +28,7 @@ library
       Handler.Common
       Handler.Home
       Handler.Produto
+      Handler.Venda
       Import
       Import.NoFoundation
       Model

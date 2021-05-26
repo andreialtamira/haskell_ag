@@ -15,3 +15,5 @@
 /produto/tipo/#ProdutoId TipoR GET
 /produtos ListaProR GET
 /produto/#ProdutoId ApagarProR POST
+
+/venda VendaR GET 

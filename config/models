@@ -12,3 +12,15 @@ Produto
 	valor Double
 	quantidade Int
 	deriving Show
+
+Venda
+	cliente Text
+	produto Text
+--	data Datetime
+	valor Double
+	quantidade_produtos Int
+	pagamento_efetuado Bool
+--	pagamento_data Datetime
+	entrega_realizada Bool
+--	entrega_data Datetime
+	deriving Show
