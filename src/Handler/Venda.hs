@@ -23,3 +23,6 @@ formVenda = renderDivs $ Venda
 
 getVendaR :: Handler Html
 getVendaR = undefined 
+
+postVendaR :: Handler Html
+postVendaR = undefined
