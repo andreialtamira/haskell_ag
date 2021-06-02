@@ -27,7 +27,16 @@ postUsuarioR :: Handler Html
 postUsuarioR = do
     ((result,_),_) <- runFormPost formLogin 
     case result of 
-        FormSuccess (usuario@(Usuario email senha), conf) -> do 
+        FormSuccess (usuario@(Usuario email senha), conf) -> do
+            usuarioExiste <- runDB $ getBy (UniqueEmail email)
+            case usuarioExiste of
+                Just _ -> do
+                    setMessage [shamlet|
+                        <div>
+                            E-MAIL JA CADASTRADO!!!
+                    |]
+                    redirect UsuarioR
+                    Nothing -> do
             if senha == conf then do 
                 runDB $ insert usuario 
                 setMessage [shamlet|

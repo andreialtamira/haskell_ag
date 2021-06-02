@@ -16,6 +16,7 @@ import Text.Julius
 getHomeR :: Handler Html
 getHomeR = do
     defaultLayout $ do
+        usuario <- lookupSession "_ID"
         toWidgetHead $(juliusFile "templates/home.julius")
         toWidgetHead $(luciusFile "templates/home.lucius") 
         $(whamletFile "templates/home.hamlet")
