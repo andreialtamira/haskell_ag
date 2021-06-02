@@ -23,5 +23,8 @@
                 <td>
                     #{clienteEndereco cliente}
                 <td>
+                    <a href=@{EditarCliR  cid}>
+                        Editar
+                <td>
                     <form method=post action=@{ApagarCliR cid}>
                         <input type="submit" value="X">

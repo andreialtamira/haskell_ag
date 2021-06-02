@@ -10,6 +10,7 @@
 /cliente/perfil/#ClienteId PerfilR GET
 /clientes ListaCliR GET
 /cliente/#ClienteId ApagarCliR POST
+/cliente/editar/#ClienteId EditarCliR GET POST
 
 /produto ProdutoR GET POST
 /produto/tipo/#ProdutoId TipoR GET
@@ -17,3 +18,5 @@
 /produto/#ProdutoId ApagarProR POST
 
 /venda VendaR GET POST 
+
+/usuario UsuarioR GET POST

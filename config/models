@@ -16,11 +16,17 @@ Produto
 Venda
 	cliente Text
 	produto Text
---	data Datetime
+	data Day
 	valor Double
 	quantidade_produtos Int
 	pagamento_efetuado Bool
---	pagamento_data Datetime
+	pagamento_data Day
 	entrega_realizada Bool
---	entrega_data Datetime
+	entrega_data Day
+	deriving Show
+
+Usuario
+	email Text
+	senha Text 
+	UniqueEmail email
 	deriving Show

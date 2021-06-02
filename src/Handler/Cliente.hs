@@ -7,31 +7,24 @@
 module Handler.Cliente where
 
 import Import
+import Handler.Auxiliar
 
-formCliente :: Form Cliente
-formCliente = renderDivs $ Cliente
-    <$> areq textField "Nome: " Nothing
-    <*> areq textField "CPF: " Nothing
-    <*> areq intField "Idade: " Nothing
-    <*> areq textField "Endereço: " Nothing
+formCliente :: Maybe Cliente -> Form Cliente
+formCliente mc = renderDivs $ Cliente
+    <$> areq textField "Nome: " (fmap clienteNome mc)
+    <*> areq textField "CPF: " (fmap clienteCpf mc)
+    <*> areq intField "Idade: " (fmap clienteIdade mc)
+    <*> areq textField "Endereço: " (fmap clienteEndereco mc)
 
 getClienteR :: Handler Html
 getClienteR = do
-    (widget,_) <- generateFormPost formCliente
+    (widget,_) <- generateFormPost (formCliente Nothing)
     msg <- getMessage
-    defaultLayout $ do
-        [whamlet|
-            $maybe mensa <- msg
-                <div>
-                    ^{mensa}
-            <form method=post action=@{ClienteR}>
-                ^{widget}
-                <input type="submit" value="Cadastrar">
-        |]
+    defaultLayout $ (formWidget widget msg ClienteR "Cadastrar")
 
 postClienteR :: Handler Html
 postClienteR = do
-    ((result,_),_) <- runFormPost formCliente
+    ((result,_),_) <- runFormPost (formCliente Nothing)
     case result of
         FormSuccess cliente -> do
             runDB $ insert cliente
@@ -65,3 +58,21 @@ postApagarCliR :: ClienteId -> Handler Html
 postApagarCliR cid = do
     runDB $ delete cid
     redirect ListaCliR
+
+getEditarCliR :: ClienteId -> Handler Html
+getEditarCliR cid = do
+        cliente <- runDB  $ get404 cid
+        (widget,_) <- generateFormPost (formCliente (Just cliente))
+        msg <- getMessage
+        defaultLayout $ (formWidget widget msg (EditarCliR cid) "Editar") 
+
+postEditarCliR :: ClienteId -> Handler Html 
+postEditarCliR cid = do
+    _ <- runDB $ get404 cid
+    ((result,_),_) <- runFormPost (formCliente Nothing)
+    case result of  
+        FormSuccess novoCliente -> do
+            runDB $ replace cid novoCliente
+            redirect ListaCliR
+        _ -> redirect HomeR
+
