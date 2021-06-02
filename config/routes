@@ -23,3 +23,5 @@
 
 /login AutR GET POST
 /logout SairR POST
+
+/admin AdminR GET
