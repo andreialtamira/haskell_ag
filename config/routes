@@ -17,7 +17,8 @@
 /produtos ListaProR GET
 /produto/#ProdutoId ApagarProR POST
 
-/venda VendaR GET POST 
+/venda/#ClienteId VendaR GET POST 
+/carrinho/#ClienteId CarrinhoR GET POST
 
 /usuario UsuarioR GET POST
 

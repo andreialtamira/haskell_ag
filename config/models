@@ -7,18 +7,17 @@ Cliente
 
 Produto
 	nome Text
-	descricao Text
 	tipo Text
 	valor Double
 	quantidade Int
 	deriving Show
 
 Venda
-	cliente Text
-	produto Text
+	cliid ClienteId
+	prodid ProdutoId
 	data Day
 	valor Double
-	quantidade_produtos Int
+	quantidade Int
 	pagamento_efetuado Bool
 	pagamento_data Day
 	entrega_realizada Bool
