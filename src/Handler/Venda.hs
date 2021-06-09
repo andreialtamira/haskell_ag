@@ -11,16 +11,11 @@ import Import
 import Database.Persist.Postgresql
 
 formVenda :: ClienteId -> Form Venda
-formVenda cid = renderDivs $ Venda
-    <$> pure cid 
+formVenda cid = renderDivs $ Venda 
+    <$> pure cid
     <*> areq (selectField prodCB) "Produto: " Nothing
     <*> lift (liftIO (map utctDay getCurrentTime))
     <*> areq intField "Quantidade: " Nothing
---    <*> areq doubleField "Valor: " Nothing
---    <*> areq boolField "Pago: " Nothing
---    <*> areq dayField "Data Pagamento: " Nothing
---    <*> areq boolField "Entrega realizada: " Nothing
---    <*> areq dayField "Data entrega: " Nothing
 
 prodCB :: Handler (OptionList (Key Produto))
 prodCB = do 
@@ -66,16 +61,16 @@ getCarrinhoR cid = do
         \ INNER JOIN venda ON venda.prodid = produto.id \
         \ INNER JOIN cliente ON venda.cliid = cliente.id \
         \ WHERE cliente.id = ?"
-    cliente <- runDB $ get 404 cid
+    cliente <- runDB $ get404 cid
     tudo <- runDB $ rawSql sql [toPersistValue cid] :: Handler [(Entity Produto,Entity Venda,Entity Cliente)]
     defaultLayout $ do
         [whamlet|
             <h1>
                 CARRINHO DO #{clienteNome cliente}
             <ul>
-                $forall (Entity _ produto, Entity _ venda, Entity _ _) <- tudo
+                $forall (Entity _ Produto, Entity _ Venda, Entity _ _) <- tudo
                 <li>
                     #{produtoNome produto}: 
-                    #{mult (produtoValor produto) (fromIntegral (vendaQuantitade venda))} 
+                    #{mult (produtoValor produto) (fromIntegral (vendaQuantidade venda))} 
                     no dia #{show $ vendaDia venda}
         |]

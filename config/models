@@ -17,12 +17,7 @@ Venda
 	prodid ProdutoId
 	dia Day
 	quantidade Int
---	valor Double
---	pagamento Bool
---	pagamento_data Day
---	entrega_realizada Bool
---	entrega_data Day
---	deriving Show
+	deriving Show
 
 Usuario
 	email Text

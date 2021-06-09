@@ -18,7 +18,7 @@
 /produto/#ProdutoId ApagarProR POST
 
 /compra/#ClienteId CompraR GET POST 
-/carrinho/#ClienteId CarrinhoR GET
+/carrinho/#ClienteId CarrinhoR GET POST
 
 /usuario UsuarioR GET POST
 
