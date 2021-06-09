@@ -26,10 +26,10 @@ prodCB :: Handler (OptionList (Key Produto))
 prodCB = do 
     produtos <- runDB $ selectList [] [Asc ProdutoNome]
     optionsPairs $ 
-        map (\r -> (produtoNome $ entityVal r, entityKey r)) row
+        map (\r -> (produtoNome $ entityVal r, entityKey r)) produtos
 
-getVendaR :: ClienteId -> Handler Html
-getVendaR cid = do
+getCompraR :: ClienteId -> Handler Html
+getCompraR cid = do
     (widget,_) <- generateFormPost (formVenda cid)
     msg <- getMessage 
     defaultLayout $
@@ -39,13 +39,13 @@ getVendaR cid = do
                     ^{mensa}
             <h1>
                 COMPRAS
-            <form method=post action=@{VendaR cid}>
+            <form method=post action=@{CompraR cid}>
                 ^{widget}
                 <input type="submit" value="Comprar">
         |] 
 
-postVendaR :: ClienteId -> Handler Html
-postVendaR cid = do
+postCompraR :: ClienteId -> Handler Html
+postCompraR cid = do
     ((result,_),_) <- runFormPost (formVenda cid)
     case result of 
         FormSuccess venda -> do
@@ -63,11 +63,11 @@ mult = (*)
 getCarrinhoR :: ClienteId -> Handler Html
 getCarrinhoR cid = do 
     let sql = "SELECT ??,??,?? FROM produto \
-        \ INNER JOIN venda ON venda.produtoid = produto.id \
-        \ INNER JOIN cliente ON venda.clienteid = cliente.id \
+        \ INNER JOIN venda ON venda.prodid = produto.id \
+        \ INNER JOIN cliente ON venda.cliid = cliente.id \
         \ WHERE cliente.id = ?"
     cliente <- runDB $ get 404 cid
-    tudo <- runDB $ rawSql sql [toPersistValue cid] :: Handler [(Entity Produto, Entity Venda, Entity Cliente)]
+    tudo <- runDB $ rawSql sql [toPersistValue cid] :: Handler [(Entity Produto,Entity Venda,Entity Cliente)]
     defaultLayout $ do
         [whamlet|
             <h1>
@@ -75,5 +75,7 @@ getCarrinhoR cid = do
             <ul>
                 $forall (Entity _ produto, Entity _ venda, Entity _ _) <- tudo
                 <li>
-                    #{produtoNome produto}: #{mult (produtoPreco produto) (fromIntegral (vendaQuantitade venda))} no dia #{show $ vendaDia venda}
+                    #{produtoNome produto}: 
+                    #{mult (produtoValor produto) (fromIntegral (vendaQuantitade venda))} 
+                    no dia #{show $ vendaDia venda}
         |]

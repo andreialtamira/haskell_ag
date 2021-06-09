@@ -15,14 +15,14 @@ Produto
 Venda
 	cliid ClienteId
 	prodid ProdutoId
-	data Day
-	valor Double
+	dia Day
 	quantidade Int
-	pagamento_efetuado Bool
-	pagamento_data Day
-	entrega_realizada Bool
-	entrega_data Day
-	deriving Show
+--	valor Double
+--	pagamento Bool
+--	pagamento_data Day
+--	entrega_realizada Bool
+--	entrega_data Day
+--	deriving Show
 
 Usuario
 	email Text
