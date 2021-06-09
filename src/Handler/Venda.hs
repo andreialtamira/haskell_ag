@@ -58,19 +58,17 @@ mult = (*)
 getCarrinhoR :: ClienteId -> Handler Html
 getCarrinhoR cid = do 
     let sql = "SELECT ??,??,?? FROM produto \
-        \ INNER JOIN venda ON venda.prodid = produto.id \
-        \ INNER JOIN cliente ON venda.cliid = cliente.id \
-        \ WHERE cliente.id = ?"
+          \ INNER JOIN venda ON venda.prodid = produto.id \
+          \ INNER JOIN cliente ON venda.cliid = cliente.id \
+          \ WHERE cliente.id = ?"
     cliente <- runDB $ get404 cid
     tudo <- runDB $ rawSql sql [toPersistValue cid] :: Handler [(Entity Produto,Entity Venda,Entity Cliente)]
-    defaultLayout $ do
-        [whamlet|
+    defaultLayout $ do 
+        {[whamlet|
             <h1>
-                CARRINHO DO #{clienteNome cliente}
+                PEDIDO DE #{clienteNome cliente}
             <ul>
-                $forall (Entity _ Produto, Entity _ Venda, Entity _ _) <- tudo
-                <li>
-                    #{produtoNome produto}: 
-                    #{mult (produtoValor produto) (fromIntegral (vendaQuantidade venda))} 
-                    no dia #{show $ vendaDia venda}
-        |]
+                $forall (Entity _ produto, Entity _ venda, Entity _ _) <- tudo
+                    <li>
+                         #{produtoNome produto}: #{mult (produtoValor produto) (fromIntegral (vendaQuantidade venda))} no dia #{show $ vendaDia venda}
+        |]}

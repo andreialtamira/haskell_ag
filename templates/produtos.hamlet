@@ -17,8 +17,6 @@
                 <td>
                     #{produtoNome produto}
                 <td>
-                    #{produtoDescricao produto}
-                <td>
                     #{produtoTipo produto}
                 <td>
                     #{produtoValor produto}

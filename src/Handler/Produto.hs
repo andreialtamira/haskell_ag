@@ -50,7 +50,7 @@ getTipoR pid = do
         <h1> 
             Nome: #{produtoNome produto}
         <h2>
-            Descricao: #{produtoDescricao produto}
+            Tipo: #{produtoTipo produto}
         <h2>
             Valor: #{produtoValor produto}
     |]
