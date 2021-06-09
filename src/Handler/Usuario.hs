@@ -36,18 +36,18 @@ postUsuarioR = do
                             E-MAIL JA CADASTRADO!!!
                     |]
                     redirect UsuarioR
-                    Nothing -> do
-            if senha == conf then do 
-                runDB $ insert usuario 
-                setMessage [shamlet|
-                    <div>
-                        Usuário inserido com sucesso!!!
-                |]
-                redirect UsuarioR
-            else do
-                setMessage [shamlet|
-                    <div>
-                        Senha divergente!!!
-                |]
-                redirect UsuarioR
+                Nothing -> do
+                    if senha == conf then do
+                        runDB $ insert usuario
+                        setMessage [shamlet|
+                            <div>
+                                Usuário inserido com sucesso!!!
+                        |]
+                        redirect HomeR
+                    else do
+                        setMessage [shamlet|
+                            <div>
+                                Senha divergente!!!
+                        |]
+                        redirect UsuarioR
         _ -> redirect HomeR
