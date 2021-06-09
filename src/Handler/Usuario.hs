@@ -8,6 +8,7 @@ module Handler.Usuario where
 
 import Import
 import Handler.Auxiliar
+import Text.Lucius
 
 formLogin :: Form (Usuario, Text)
 formLogin = renderDivs $ (,)  
@@ -22,7 +23,7 @@ getUsuarioR = do
     (widget,_) <- generateFormPost formLogin 
     msg <- getMessage
     defaultLayout (formWidget widget msg UsuarioR "Cadastrar")
-
+    
 postUsuarioR :: Handler Html 
 postUsuarioR = do
     ((result,_),_) <- runFormPost formLogin 

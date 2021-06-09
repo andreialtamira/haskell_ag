@@ -8,6 +8,9 @@ module Handler.Cliente where
 
 import Import
 import Handler.Auxiliar
+import Text.Lucius
+import Text.Julius
+import Database.Persist.Postgresql
 
 formCliente :: Maybe Cliente -> Form Cliente
 formCliente mc = renderDivs $ Cliente
@@ -51,8 +54,11 @@ getPerfilR cid = do
 
 getListaCliR :: Handler Html
 getListaCliR = do
-    clientes <- runDB $ selectList [] [Asc ClienteNome]
-    defaultLayout $(whamletFile "templates/clientes.hamlet")
+    clientes <- runDB $ selectList [] [Asc ClienteId]
+    defaultLayout $ do 
+        addStylesheet (StaticR css_bootstrap_css)
+        $(whamletFile "templates/clientes.hamlet")
+        toWidgetHead $(luciusFile "templates/clientes.lucius")
 
 postApagarCliR :: ClienteId -> Handler Html
 postApagarCliR cid = do
