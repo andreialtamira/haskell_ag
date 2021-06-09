@@ -1,1 +1,1 @@
-web: aulahaskellag
+web: aulahaskell
