@@ -8,6 +8,7 @@
 module Handler.Produto where
 
 import Import
+import Text.Lucius
 
 formProduto :: Form Produto
 formProduto = renderDivs $ Produto
@@ -58,7 +59,9 @@ getTipoR pid = do
 getListaProR :: Handler Html
 getListaProR = do 
     produtos <- runDB $ selectList [] [Asc ProdutoNome]
-    defaultLayout $(whamletFile "templates/produtos.hamlet")
+    defaultLayout $ do
+        $(whamletFile "templates/produtos.hamlet")
+        toWidgetHead $(luciusFile "templates/produtos.lucius")
 
 postApagarProR :: ProdutoId -> Handler Html 
 postApagarProR pid = do

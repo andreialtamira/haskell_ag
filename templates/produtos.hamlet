@@ -1,3 +1,14 @@
+  <ul class="sf-menu">
+    <li><a href=@{AutR}>Login
+    <li><a href=@{ClienteR}>Clientes
+    <li><a href=@{ProdutoR}>Produtos
+    <li><a href=@{Page3R}>Carrinho
+          
+  <div class="clear">
+  <div class="content">
+  <div class="grid_12">
+  <div class="box bx2">
+
 <table>
     <thead>
         <tr>
